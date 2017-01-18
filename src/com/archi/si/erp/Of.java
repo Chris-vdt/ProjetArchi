@@ -8,7 +8,8 @@ public class Of {
 	private String etat;
 	private int quantite;
 	private String dateD;
-	private String dateF;	
+	private String dateF;
+	private ProduitF pF;
 	
 	/*public Of(int reference, String etat, int quantite) {
 		super();
