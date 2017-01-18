@@ -20,7 +20,7 @@ public class CatalogueCmdeClient extends ArrayList<CmdeClient>{
 		String result = "";						// parcours la collection de commande client présente dans le catalogue et fait un afficherCmdeClients()
 		while(it.hasNext()){					// pour chaque commande client de la collection et retourne l'intégralité des commandes parcouruent
 			CmdeClient client = it.next();
-			 result = result + client.afficherClient() + "\r\n";
+			 result = result + client.afficherCmdeClient() + "\r\n";
 		}
 		return result;
 		

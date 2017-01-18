@@ -11,13 +11,6 @@ public class Of {
 	private String dateF;
 	//private ProduitF pF;
 	
-	/*public Of(int reference, String etat, int quantite) {
-		super();
-		this.reference = reference;
-		this.etat = etat;
-		this.quantite = quantite;
-	}
-	*/
 	
 	
 
@@ -113,6 +106,14 @@ public String getDateD() {
 			this.setEtat("En cours de production");
 			System.out.println(this.getEtat());
 		}
+	}
+
+
+	public String afficherOf() {
+		// TODO Auto-generated method stub
+		return "reference de l'OF : " + this.reference + ", etat : " + this.etat + ", quantité : "
+				+ this.quantite + ", date de début : " + this.dateD + ", date de fin : " + this.dateF;
+		//A RAJOUTER ---> ", produit : " + this.ProduitF;
 	}
 	
 	
