@@ -1,6 +1,14 @@
 package com.archi.si.launcher;
 
 
+import java.io.IOException;
+
+import com.archi.si.data.SerializerCmdeClient;
+import com.archi.si.data.SerializerOf;
+import com.archi.si.erp.CatalogueCmdeClient;
+import com.archi.si.erp.CatalogueOf;
+import com.archi.si.erp.CmdeClient;
+import com.archi.si.erp.Of;
 import com.archi.si.view.Display;
 import com.archi.si.view.Input;
 
@@ -23,8 +31,17 @@ public class Systeme {
 	}
 	
 	
-	
-	public static void main(String[] args){
+	public static void main(String[] args) throws IOException{
+		
+		
+		
+		CatalogueCmdeClient catalogueCmdeClient = new CatalogueCmdeClient();
+		CatalogueOf catalogueOf = new CatalogueOf();
+		SerializerCmdeClient serCmd = new SerializerCmdeClient();
+		SerializerOf serOf = new SerializerOf();
+		catalogueCmdeClient = serCmd.loadClient();
+		catalogueOf = serOf.loadOf();
+		
 		int choixMenu = -1;
 		while (choixMenu != 99){
 		dis.poserQuestion("Que voulez-vous faire ?");
@@ -33,32 +50,72 @@ public class Systeme {
 		
 		switch (choixMenu){
 		case 1://creation d'une commande
-			int nvlleRef = poserQuestionInt("Référence :" );
-			String quantité = poserQuestionString ("Quantité :");
-			String etat = poserQuestionString("Etat (En cours de traitement/Livré): ");
-			double nvPrix = poserQuestionDouble("Quel est le nouveau prix du produit?");
+			dis.poserQuestion("Création de commande");
+			int ref = poserQuestionInt("Référence :" );
+			String date = poserQuestionString("Date :" );
+			int quantite = poserQuestionInt("Quantité :");
+			String etat = poserQuestionString("Etat (En cours de traitement/Livré): ");			
 			
+			CmdeClient p = new CmdeClient();
+			p.creerCmdeClient(ref, date, quantite, etat);
 			
-			Commande p = new Commande(nvlleRef, quantité, etat);
-			boolean isPrixValid = p.validerPrix();
-			boolean isRefValid = catalogueProduit.validerRef(p);
+			boolean isRefValid = catalogueCmdeClient.validerRef(p);
 			
-			if(isPrixValid == true && isRefValid == true){
-				catalogueProduit.add(p);                    // si le prix et la r�f�rence du nouveau produit sont valide alors le produit est ajout� au catalogue
-				serp.saveProduit(catalogueProduit);
+			if(isRefValid == true){
+				catalogueCmdeClient.add(p); 
+				serCmd.saveClient(catalogueCmdeClient);
 			}
 			else{
-				System.out.println("Le produit n'est pas valide (prix et/ou r�f�rence !");
+				System.out.println("La référence n'est pas valide");
 			}
-			
 			break;
-		case 2:
-		case 3:
-		case 4:
+		case 2: //Modifier Etat de la commande
+			int indexCmde = poserQuestionInt("Quelle commande voulez-vous modifier ? (entrer la référence)");
+			for (int i = 0; i < catalogueCmdeClient.size(); i++) {
+				int j = i + 1;
+				if (catalogueCmdeClient.get(i).getReference() == indexCmde){
+					CmdeClient cmdeClient = catalogueCmdeClient.get(i);
+					System.out.println(cmdeClient.afficherCmdeClient());
+					
+					String newEtat = poserQuestionString("Mise à jour de l'état : ");
+					cmdeClient.setEtat(newEtat);	
+				}
+			}
+			break;
+		case 3: //creer un OF
+			dis.poserQuestion("Création d'un Ordre de Fabrication");
+			int refOf = poserQuestionInt("Référence :" );
+			String etatOf = poserQuestionString("Etat: ");
+			int quantiteOf = poserQuestionInt("Quantité :");
+			String dateD = poserQuestionString("Date début :");
+			String dateF = poserQuestionString("Date fin :");
+			Of of = new Of();
+			of.creerOf(refOf, etatOf, quantiteOf, dateD, dateF);
+			
+			boolean isRefValid2 = catalogueOf.validerRef(of);
+			
+			if(isRefValid2 == true){
+				catalogueOf.add(of); 
+				serOf.saveOf(catalogueOf);
+			}
+			else{
+				System.out.println("La référence n'est pas valide");
+			}
+			break;
+		case 4://Imprimer l'OF
+			int indexOf = poserQuestionInt("Quel OF voulez-vous imprimer ? (entrer la référence)");
+			for (int i = 0; i < catalogueOf.size(); i++) {
+				int j = i + 1;
+				if (catalogueOf.get(i).getReference() == indexOf){
+					Of of1 = catalogueOf.get(i);
+					of1.imprimerOf(indexOf);
+					System.out.println(of1.afficherOf());
+				}
+			}
+			break;
 		case 5:
 		case 6:
 		case 7:
-		case 8:
 		case 99:
 			System.out.println("Fin de l'application\r\n");
 			break;
@@ -67,5 +124,7 @@ public class Systeme {
 		
 		}
 	}
+
+	
 
 }

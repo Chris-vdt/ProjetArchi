@@ -1,5 +1,66 @@
 package com.archi.si.erp;
 
-public class CmdeClient {
+import java.io.Serializable;
 
+public class CmdeClient implements Serializable {
+
+	private static final long serialVersionUID = 1L;
+	private int reference;
+	private String dateD;
+	private int quantite;
+	private String etat;
+	
+	
+	//************************************ GETTER & SETTER *********************************************\\
+	
+	public int getReference() {
+		return reference;
+	}
+	
+	public void setReference(int reference) {
+		this.reference = reference;
+	}
+	
+	public String getDateD() {
+		return dateD;
+	}
+	
+	public void setDateD(String dateD) {
+		this.dateD = dateD;
+	}
+	
+	public int getQuantite() {
+		return quantite;
+	}
+	
+	public void setQuantite(int quantite) {
+		this.quantite = quantite;
+	}
+	
+	public String getEtat() {
+		return etat;
+	}
+	
+	public void setEtat(String etat) {
+		this.etat = etat;
+	}
+
+	//***********************************************Constructeur*************************************\\
+	
+	public void creerCmdeClient(int reference, String dateD, int quantite, String etat){
+		this.reference = reference;
+		this.dateD = dateD;
+		this.quantite = quantite;
+		this.etat = etat;
+		}
+	
+	//*************************************************METHODES ****************************************\\
+	
+	
+		public String afficherCmdeClient() {
+			return " Numero commande client : " + this.reference +"," + " Datde de d�but : " + this.dateD + "," + " Quantit� demand�e : " + this.quantite + ","
+					+  " Etat de la commande : " + this.etat;
+		}
+		// Retourne les attributs de la commande client
+	
 }

@@ -8,15 +8,9 @@ public class Of {
 	private String etat;
 	private int quantite;
 	private String dateD;
-	private String dateF;	
+	private String dateF;
+	//private ProduitF pF;
 	
-	/*public Of(int reference, String etat, int quantite) {
-		super();
-		this.reference = reference;
-		this.etat = etat;
-		this.quantite = quantite;
-	}
-	*/
 	
 	
 
@@ -88,30 +82,38 @@ public String getDateD() {
 		
 	public void plannifierOf(int ref){
 		if (this.reference == ref){
-			this.setEtat("etat : OF Plannifié !");
+			this.setEtat("Plannifié");
 			System.out.println(this.getEtat());
 		}
 	}
 	
 	public void imprimerOf(int ref){
 		if (this.reference == ref){
-			this.setEtat("etat : OF Imprimé !");
+			this.setEtat("Imprimé");
 			System.out.println(this.getEtat());
 		}
 	}
 	
 	public void envoiProdOf(int ref){
 		if (this.reference == ref){
-			this.setEtat("etat : OF est envoyé en production");
+			this.setEtat("Envoyé en production");
 			System.out.println(this.getEtat());
 		}
 	}
 	
 	public void realiserOf(int ref){
 		if (this.reference == ref){
-			this.setEtat("etat : OF est réalisé");
+			this.setEtat("En cours de production");
 			System.out.println(this.getEtat());
 		}
+	}
+
+
+	public String afficherOf() {
+		// TODO Auto-generated method stub
+		return "reference de l'OF : " + this.reference + ", etat : " + this.etat + ", quantité : "
+				+ this.quantite + ", date de début : " + this.dateD + ", date de fin : " + this.dateF;
+		//A RAJOUTER ---> ", produit : " + this.ProduitF;
 	}
 	
 	
