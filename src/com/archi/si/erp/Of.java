@@ -9,7 +9,7 @@ public class Of {
 	private int quantite;
 	private String dateD;
 	private String dateF;
-	private ProduitF pF;
+	//private ProduitF pF;
 	
 	/*public Of(int reference, String etat, int quantite) {
 		super();
@@ -89,28 +89,28 @@ public String getDateD() {
 		
 	public void plannifierOf(int ref){
 		if (this.reference == ref){
-			this.setEtat("etat : OF Plannifié !");
+			this.setEtat("Plannifié");
 			System.out.println(this.getEtat());
 		}
 	}
 	
 	public void imprimerOf(int ref){
 		if (this.reference == ref){
-			this.setEtat("etat : OF Imprimé !");
+			this.setEtat("Imprimé");
 			System.out.println(this.getEtat());
 		}
 	}
 	
 	public void envoiProdOf(int ref){
 		if (this.reference == ref){
-			this.setEtat("etat : OF est envoyé en production");
+			this.setEtat("Envoyé en production");
 			System.out.println(this.getEtat());
 		}
 	}
 	
 	public void realiserOf(int ref){
 		if (this.reference == ref){
-			this.setEtat("etat : OF est réalisé");
+			this.setEtat("En cours de production");
 			System.out.println(this.getEtat());
 		}
 	}
