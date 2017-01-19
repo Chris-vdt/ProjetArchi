@@ -47,11 +47,10 @@ public class CmdeClient implements Serializable {
 
 	//***********************************************Constructeur*************************************\\
 	
-	public void creerCmdeClient(int reference, String dateD, int quantite, String etat){
+	public void creerCmdeClient(int reference, String dateD, int quantite){
 		this.reference = reference;
 		this.dateD = dateD;
 		this.quantite = quantite;
-		this.etat = etat;
 		}
 	
 	//*************************************************METHODES ****************************************\\

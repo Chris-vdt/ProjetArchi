@@ -56,7 +56,7 @@ public class Systeme {
 			int quantite = poserQuestionInt("Quantite :");			
 			
 			CmdeClient p = new CmdeClient();
-			p.creerCmdeClient(ref, date, quantite, etat);
+			p.creerCmdeClient(ref, date, quantite);
 			
 			boolean isRefValid = catalogueCmdeClient.validerRef(p);
 			
