@@ -15,7 +15,7 @@ public class SerializerOf {
 			// On cr�er une liste "catalogueP" qui est une nouvelle ArrayList
 		CatalogueOf catalogueCmde = new CatalogueOf();
 				try {
-					FileInputStream streamIn2 = new FileInputStream("C:/Users/Simon/workspace/monCatalogueCmdeClient.ser");   //On charge le fichier qui se trouve � l'espace indiqu�
+					FileInputStream streamIn2 = new FileInputStream("C:/Users/ASUS/Documents/EnregistrementSerializer/monCatalogueOf.ser");   //On charge le fichier qui se trouve � l'espace indiqu�
 
 					ObjectInputStream objectinputstream2 = new ObjectInputStream(streamIn2);
 					try {
@@ -30,7 +30,7 @@ public class SerializerOf {
 				} catch (IOException ioe) {
 					// ioe.printStackTrace();
 					
-					System.out.println("nouveau calogue");    // si le catalogue n'existe pas, la cr�ation d'un nouveau catalogue est indiqu�e
+					System.out.println("nouveau catalogue Of");    // si le catalogue n'existe pas, la cr�ation d'un nouveau catalogue est indiqu�e
 				} catch (ClassNotFoundException cnfe) {
 					cnfe.printStackTrace();
 				}
@@ -41,7 +41,7 @@ public class SerializerOf {
 	public void saveOf(CatalogueOf catClient) throws IOException{
 
 		
-		FileOutputStream fout2 = new FileOutputStream("C:/Users/Simon/workspace/monCatalogueClient.ser");
+		FileOutputStream fout2 = new FileOutputStream("C:/Users/ASUS/Documents/EnregistrementSerializer/monCatalogueOf.ser");
 		ObjectOutputStream oos2 = new ObjectOutputStream(fout2);
 		oos2.writeObject(catClient);								// sauvegarde du catalogue dans le fichier
 		oos2.close();

@@ -50,11 +50,10 @@ public class Systeme {
 		
 		switch (choixMenu){
 		case 1://creation d'une commande
-			dis.poserQuestion("Création de commande");
-			int ref = poserQuestionInt("Référence :" );
+			dis.poserQuestion("Creattion de commande");
+			int ref = poserQuestionInt("Reference :" );
 			String date = poserQuestionString("Date :" );
-			int quantite = poserQuestionInt("Quantité :");
-			String etat = poserQuestionString("Etat (En cours de traitement/Livré): ");			
+			int quantite = poserQuestionInt("Quantite :");			
 			
 			CmdeClient p = new CmdeClient();
 			p.creerCmdeClient(ref, date, quantite, etat);
@@ -66,7 +65,7 @@ public class Systeme {
 				serCmd.saveClient(catalogueCmdeClient);
 			}
 			else{
-				System.out.println("La référence n'est pas valide");
+				System.out.println("La reference n'est pas valide");
 			}
 			break;
 		case 2: //Modifier Etat de la commande
@@ -77,17 +76,17 @@ public class Systeme {
 					CmdeClient cmdeClient = catalogueCmdeClient.get(i);
 					System.out.println(cmdeClient.afficherCmdeClient());
 					
-					String newEtat = poserQuestionString("Mise à jour de l'état : ");
+					String newEtat = poserQuestionString("Mise a jour de l'etat : ");
 					cmdeClient.setEtat(newEtat);	
 				}
 			}
 			break;
 		case 3: //creer un OF
-			dis.poserQuestion("Création d'un Ordre de Fabrication");
-			int refOf = poserQuestionInt("Référence :" );
+			dis.poserQuestion("Creation d'un Ordre de Fabrication");
+			int refOf = poserQuestionInt("Reference :" );
 			String etatOf = poserQuestionString("Etat: ");
-			int quantiteOf = poserQuestionInt("Quantité :");
-			String dateD = poserQuestionString("Date début :");
+			int quantiteOf = poserQuestionInt("Quantite :");
+			String dateD = poserQuestionString("Date debut :");
 			String dateF = poserQuestionString("Date fin :");
 			Of of = new Of();
 			of.creerOf(refOf, etatOf, quantiteOf, dateD, dateF);
@@ -99,11 +98,11 @@ public class Systeme {
 				serOf.saveOf(catalogueOf);
 			}
 			else{
-				System.out.println("La référence n'est pas valide");
+				System.out.println("La reference n'est pas valide");
 			}
 			break;
 		case 4://Imprimer l'OF
-			int indexOf = poserQuestionInt("Quel OF voulez-vous imprimer ? (entrer la référence)");
+			int indexOf = poserQuestionInt("Quel OF voulez-vous imprimer ? (entrer la reference)");
 			for (int i = 0; i < catalogueOf.size(); i++) {
 				int j = i + 1;
 				if (catalogueOf.get(i).getReference() == indexOf){

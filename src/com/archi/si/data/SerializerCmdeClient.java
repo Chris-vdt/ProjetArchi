@@ -17,7 +17,7 @@ public class SerializerCmdeClient {
 				// On créer une liste "catalogueP" qui est une nouvelle ArrayList
 				CatalogueCmdeClient catalogueCmde = new CatalogueCmdeClient();
 					try {
-						FileInputStream streamIn2 = new FileInputStream("C:/Users/Simon/workspace/monCatalogueCmdeClient.ser");   //On charge le fichier qui se trouve à l'espace indiqué
+						FileInputStream streamIn2 = new FileInputStream("C:/Users/ASUS/Documents/EnregistrementSerializer/monCatalogueCmdeClient.ser");   //On charge le fichier qui se trouve à l'espace indiqué
 						ObjectInputStream objectinputstream2 = new ObjectInputStream(streamIn2);
 						try {
 							catalogueCmde = (CatalogueCmdeClient) objectinputstream2.readObject();
@@ -30,7 +30,7 @@ public class SerializerCmdeClient {
 						}
 					} catch (IOException ioe) {
 						// ioe.printStackTrace();
-						System.out.println("nouveau calogue");    // si le catalogue n'existe pas, la création d'un nouveau catalogue est indiquée
+						System.out.println("nouveau catalogue Cmde Client");    // si le catalogue n'existe pas, la création d'un nouveau catalogue est indiquée
 					} catch (ClassNotFoundException cnfe) {
 						cnfe.printStackTrace();
 					}
@@ -40,7 +40,7 @@ public class SerializerCmdeClient {
 		
 		public void saveClient(CatalogueCmdeClient catClient) throws IOException{
 			
-			FileOutputStream fout2 = new FileOutputStream("C:/Users/Simon/workspace/monCatalogueClient.ser");
+			FileOutputStream fout2 = new FileOutputStream("C:/Users/ASUS/Documents/EnregistrementSerializer/monCatalogueCmdeClient.ser");
 			ObjectOutputStream oos2 = new ObjectOutputStream(fout2);
 			oos2.writeObject(catClient);								// sauvegarde du catalogue dans le fichier
 			oos2.close();
