@@ -12,7 +12,7 @@ public class CatalogueCmdeClient extends ArrayList<CmdeClient>{
 		}
 		return instance2;
 	}
-//-----------------------------------AfficherProduits()-------------------------------------\\
+//-----------------------------------AfficherCmde()-------------------------------------\\
 	public String afficherCmdeClients() {
 		// TODO Auto-generated method stub
 		

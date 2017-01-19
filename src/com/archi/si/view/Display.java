@@ -7,9 +7,8 @@ public class Display {
 				+ "\r\n2 - Modifier etat d'une commande"
 				+ "\r\n3 - Creer un OF"
 				+ "\r\n4 - Imprimer un OF"
-				+ "\r\n - Afficher le stock PF"
-				+ "\r\n - Ajouter un PF au stock PF"
-				+ "\r\n - Supprimer un PF au stock PF"				
+				+ "\r\n5 - Afficher les commandes clients"
+				+"\r\n6 - Afficher les OFs"	
 				+ "\r\n99 - Quitter";
 				
 	}

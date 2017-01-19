@@ -6,44 +6,42 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
+import com.archi.si.erp.CatalogueCmdeClient;
 import com.archi.si.erp.CatalogueOf;
 
 public class SerializerOf {
 	
 	public CatalogueOf loadOf(){
-		//******************************** DESERIALISATION = rï¿½cupï¿½re le fichier sauvegardï¿½ ******************************************/
-			// On crï¿½er une liste "catalogueP" qui est une nouvelle ArrayList
-		CatalogueOf catalogueCmde = new CatalogueOf();
+		//******************************** DESERIALISATION = récupère le fichier sauvegardé ******************************************/
+			// On créer une liste "catalogueP" qui est une nouvelle ArrayList
+			CatalogueOf catalogueOf = new CatalogueOf();
 				try {
-					FileInputStream streamIn2 = new FileInputStream("C:/Users/ASUS/Documents/EnregistrementSerializer/monCatalogueOf.ser");   //On charge le fichier qui se trouve ï¿½ l'espace indiquï¿½
-
-					ObjectInputStream objectinputstream2 = new ObjectInputStream(streamIn2);
+					FileInputStream streamIn1 = new FileInputStream("C:/Users/ASUS/Documents/EnregistrementSerializer/monCatalogueOf.ser");   //On charge le fichier qui se trouve à l'espace indiqué
+					ObjectInputStream objectinputstream1 = new ObjectInputStream(streamIn1);
 					try {
-						catalogueCmde = (CatalogueOf) objectinputstream2.readObject();
+						catalogueOf = (CatalogueOf) objectinputstream1.readObject();
 					} finally {
 						try {
-							objectinputstream2.close();
+							objectinputstream1.close();
 						} finally {
-							streamIn2.close();
+							streamIn1.close();
 						}
 					}
 				} catch (IOException ioe) {
 					// ioe.printStackTrace();
-					
-					System.out.println("nouveau catalogue Of");    // si le catalogue n'existe pas, la crï¿½ation d'un nouveau catalogue est indiquï¿½e
+					System.out.println("nouveau catalogue Of");    // si le catalogue n'existe pas, la création d'un nouveau catalogue est indiquée
 				} catch (ClassNotFoundException cnfe) {
 					cnfe.printStackTrace();
 				}
-				return catalogueCmde;				// retourne le catalogue chargï¿½
+				return catalogueOf;				// retourne le catalogue chargé
 
 			}
 	
-	public void saveOf(CatalogueOf catClient) throws IOException{
-
+	public void saveOf(CatalogueOf cat) throws IOException{
 		
-		FileOutputStream fout2 = new FileOutputStream("C:/Users/ASUS/Documents/EnregistrementSerializer/monCatalogueOf.ser");
-		ObjectOutputStream oos2 = new ObjectOutputStream(fout2);
-		oos2.writeObject(catClient);								// sauvegarde du catalogue dans le fichier
-		oos2.close();
+		FileOutputStream fout = new FileOutputStream("C:/Users/ASUS/Documents/EnregistrementSerializer/monCatalogueOf.ser");
+		ObjectOutputStream oos = new ObjectOutputStream(fout);
+		oos.writeObject(cat);								// sauvegarde du catalogue dans le fichier
+		oos.close();
 	}
 }

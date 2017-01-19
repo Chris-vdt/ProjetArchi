@@ -65,12 +65,9 @@ public String getDateD() {
 
 
 	//------------------------------------METHODS----------------------------------------------//
-	public void creerOf(int reference, String etat, int quantite, String dateD, String dateF){
+	public void creerOf(int reference, int quantite){
 		this.reference = reference;
-		this.etat = etat;
 		this.quantite = quantite;
-		this.dateD = dateD;
-		this.dateF = dateF;
 	}
 	
 	public void confirmerOf(int ref){

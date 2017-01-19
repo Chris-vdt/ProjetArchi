@@ -50,10 +50,10 @@ public class Systeme {
 		
 		switch (choixMenu){
 		case 1://creation d'une commande
-			dis.poserQuestion("Creattion de commande");
-			int ref = poserQuestionInt("Reference :" );
-			String date = poserQuestionString("Date :" );
-			int quantite = poserQuestionInt("Quantite :");			
+			dis.poserQuestion("Creation de commande");
+			int ref = poserQuestionInt("Reference : " );
+			String date = poserQuestionString("Date : " );
+			int quantite = poserQuestionInt("Quantite : ");			
 			
 			CmdeClient p = new CmdeClient();
 			p.creerCmdeClient(ref, date, quantite);
@@ -65,11 +65,12 @@ public class Systeme {
 				serCmd.saveClient(catalogueCmdeClient);
 			}
 			else{
-				System.out.println("La reference n'est pas valide");
+				System.out.println("La reference existe deja");
 			}
 			break;
+			
 		case 2: //Modifier Etat de la commande
-			int indexCmde = poserQuestionInt("Quelle commande voulez-vous modifier ? (entrer la rÃ©fÃ©rence)");
+			int indexCmde = poserQuestionInt("Quelle commande voulez-vous modifier ? (entrer la reference)");
 			for (int i = 0; i < catalogueCmdeClient.size(); i++) {
 				int j = i + 1;
 				if (catalogueCmdeClient.get(i).getReference() == indexCmde){
@@ -84,18 +85,17 @@ public class Systeme {
 		case 3: //creer un OF
 			dis.poserQuestion("Creation d'un Ordre de Fabrication");
 			int refOf = poserQuestionInt("Reference :" );
-			String etatOf = poserQuestionString("Etat: ");
 			int quantiteOf = poserQuestionInt("Quantite :");
-			String dateD = poserQuestionString("Date debut :");
-			String dateF = poserQuestionString("Date fin :");
 			Of of = new Of();
-			of.creerOf(refOf, etatOf, quantiteOf, dateD, dateF);
+			of.creerOf(refOf, quantiteOf);
 			
 			boolean isRefValid2 = catalogueOf.validerRef(of);
 			
 			if(isRefValid2 == true){
 				catalogueOf.add(of); 
 				serOf.saveOf(catalogueOf);
+				
+
 			}
 			else{
 				System.out.println("La reference n'est pas valide");
@@ -112,9 +112,21 @@ public class Systeme {
 				}
 			}
 			break;
-		case 5:
-		case 6:
-		case 7:
+			
+		case 5://Afficher les commandes du catalogue de cmde
+			System.out.println(catalogueCmdeClient.afficherCmdeClients());
+			break;
+			
+		case 6://Afficher les Of du catalogue d'OF
+			System.out.println(catalogueOf.afficherOf());
+			break;
+			/*
+		case 7://Plannifier OF -> Ajouter une date de début et de fin
+			int refOf1 = poserQuestionInt("Quel est la référence de l'OF à plannifier" );
+			String dateD = poserQuestionString("Date debut :");
+			String dateF = poserQuestionString("Date fin :");
+			of.plannifierOf(refOf1);
+			*/
 		case 99:
 			System.out.println("Fin de l'application\r\n");
 			break;
