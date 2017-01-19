@@ -8,7 +8,7 @@ public class CmdeClient implements Serializable {
 	private int reference;
 	private String dateD;
 	private int quantite;
-	private String etat;
+	private String etat="En cours";
 	
 	
 	//************************************ GETTER & SETTER *********************************************\\
@@ -57,7 +57,7 @@ public class CmdeClient implements Serializable {
 	
 	
 		public String afficherCmdeClient() {
-			return " Numero commande client : " + this.reference +"," + " Datde de début : " + this.dateD + "," + " Quantité demandé : " + this.quantite + ","
+			return " Numero commande client : " + this.reference +"," + " Datde de dï¿½but : " + this.dateD + "," + " Quantitï¿½ demandï¿½ : " + this.quantite + ","
 					+  " Etat de la commande : " + this.etat;
 		}
 		// Retourne les attributs de la commande client

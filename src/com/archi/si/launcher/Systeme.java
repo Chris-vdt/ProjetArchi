@@ -98,9 +98,11 @@ public class Systeme {
 
 			}
 			else{
-				System.out.println("La reference n'est pas valide");
+				System.out.println("La reference existe dÃ©jÃ ");
 			}
 			break;
+			
+			
 		case 4://Imprimer l'OF
 			int indexOf = poserQuestionInt("Quel OF voulez-vous imprimer ? (entrer la reference)");
 			for (int i = 0; i < catalogueOf.size(); i++) {
@@ -121,8 +123,8 @@ public class Systeme {
 			System.out.println(catalogueOf.afficherOf());
 			break;
 			/*
-		case 7://Plannifier OF -> Ajouter une date de début et de fin
-			int refOf1 = poserQuestionInt("Quel est la référence de l'OF à plannifier" );
+		case 7://Plannifier OF -> Ajouter une date de dï¿½but et de fin
+			int refOf1 = poserQuestionInt("Quel est la rï¿½fï¿½rence de l'OF ï¿½ plannifier" );
 			String dateD = poserQuestionString("Date debut :");
 			String dateF = poserQuestionString("Date fin :");
 			of.plannifierOf(refOf1);

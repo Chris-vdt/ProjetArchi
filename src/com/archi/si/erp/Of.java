@@ -1,9 +1,10 @@
 package com.archi.si.erp;
 
+import java.io.Serializable;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 
-public class Of {
+public class Of implements Serializable{
 	private int reference;
 	private String etat;
 	private int quantite;
@@ -72,28 +73,28 @@ public String getDateD() {
 	
 	public void confirmerOf(int ref){
 		if (this.reference == ref){
-			this.setEtat("etat : OF Confirmé !");
+			this.setEtat("etat : OF Confirmï¿½ !");
 			System.out.println(this.getEtat());
 		}
 	}
 		
 	public void plannifierOf(int ref){
 		if (this.reference == ref){
-			this.setEtat("Plannifié");
+			this.setEtat("Plannifiï¿½");
 			System.out.println(this.getEtat());
 		}
 	}
 	
 	public void imprimerOf(int ref){
 		if (this.reference == ref){
-			this.setEtat("Imprimé");
+			this.setEtat("Imprimï¿½");
 			System.out.println(this.getEtat());
 		}
 	}
 	
 	public void envoiProdOf(int ref){
 		if (this.reference == ref){
-			this.setEtat("Envoyé en production");
+			this.setEtat("Envoyï¿½ en production");
 			System.out.println(this.getEtat());
 		}
 	}
@@ -108,8 +109,8 @@ public String getDateD() {
 
 	public String afficherOf() {
 		// TODO Auto-generated method stub
-		return "reference de l'OF : " + this.reference + ", etat : " + this.etat + ", quantité : "
-				+ this.quantite + ", date de début : " + this.dateD + ", date de fin : " + this.dateF;
+		return "reference de l'OF : " + this.reference + ", etat : " + this.etat + ", quantitï¿½ : "
+				+ this.quantite + ", date de dï¿½but : " + this.dateD + ", date de fin : " + this.dateF;
 		//A RAJOUTER ---> ", produit : " + this.ProduitF;
 	}
 	

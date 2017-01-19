@@ -12,11 +12,11 @@ import com.archi.si.erp.CatalogueOf;
 public class SerializerOf {
 	
 	public CatalogueOf loadOf(){
-		//******************************** DESERIALISATION = récupère le fichier sauvegardé ******************************************/
-			// On créer une liste "catalogueP" qui est une nouvelle ArrayList
+		//******************************** DESERIALISATION = rï¿½cupï¿½re le fichier sauvegardï¿½ ******************************************/
+			// On crï¿½er une liste "catalogueP" qui est une nouvelle ArrayList
 			CatalogueOf catalogueOf = new CatalogueOf();
 				try {
-					FileInputStream streamIn1 = new FileInputStream("C:/Users/ASUS/Documents/EnregistrementSerializer/monCatalogueOf.ser");   //On charge le fichier qui se trouve à l'espace indiqué
+					FileInputStream streamIn1 = new FileInputStream("/Users/Mavary/Documents/Serializer/monCatalogueOf.ser");   //On charge le fichier qui se trouve ï¿½ l'espace indiquï¿½
 					ObjectInputStream objectinputstream1 = new ObjectInputStream(streamIn1);
 					try {
 						catalogueOf = (CatalogueOf) objectinputstream1.readObject();
@@ -29,17 +29,17 @@ public class SerializerOf {
 					}
 				} catch (IOException ioe) {
 					// ioe.printStackTrace();
-					System.out.println("nouveau catalogue Of");    // si le catalogue n'existe pas, la création d'un nouveau catalogue est indiquée
+					System.out.println("nouveau catalogue Of");    // si le catalogue n'existe pas, la crï¿½ation d'un nouveau catalogue est indiquï¿½e
 				} catch (ClassNotFoundException cnfe) {
 					cnfe.printStackTrace();
 				}
-				return catalogueOf;				// retourne le catalogue chargé
+				return catalogueOf;				// retourne le catalogue chargï¿½
 
 			}
 	
 	public void saveOf(CatalogueOf cat) throws IOException{
 		
-		FileOutputStream fout = new FileOutputStream("C:/Users/ASUS/Documents/EnregistrementSerializer/monCatalogueOf.ser");
+		FileOutputStream fout = new FileOutputStream("/Users/Mavary/Documents/Serializer/monCatalogueOf.ser");
 		ObjectOutputStream oos = new ObjectOutputStream(fout);
 		oos.writeObject(cat);								// sauvegarde du catalogue dans le fichier
 		oos.close();
