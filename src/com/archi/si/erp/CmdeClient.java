@@ -58,11 +58,7 @@ public class CmdeClient implements Serializable {
 	
 	
 		public String afficherCmdeClient() {
-<<<<<<< HEAD
-			return " Numero commande client : " + this.reference +"," + " Datde de dï¿½but : " + this.dateD + "," + " Quantitï¿½ demandï¿½e : " + this.quantite + ","
-=======
-			return " Numero commande client : " + this.reference +"," + " Datde de début : " + this.dateD + "," + " Quantité demandée : " + this.quantite + ","
->>>>>>> 806d76b600062a532256e24830b20e6ab57998f6
+			return " Numero commande client : " + this.reference +"," + " Datde de début : " + this.dateD + "," + " Quantité demandé : " + this.quantite + ","
 					+  " Etat de la commande : " + this.etat;
 		}
 		// Retourne les attributs de la commande client
